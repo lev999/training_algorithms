@@ -5,7 +5,7 @@ package book;
 public class Rotating_Matrix {
 
 	private final static int N = 3;
-	static int[][] M = new int[N][N];
+	static int[][] M = new int[N+1][N+1];
 
 	public static void main(String[] arg) {
 		System.out.println("Initial matrix:");
@@ -17,28 +17,30 @@ public class Rotating_Matrix {
 	}
 
 	private static void printM() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
 				System.out.print(M[i][j] + " ");
 			}
 			System.out.println();
 		}
+		System.out.println("Indexes:");
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
+				System.out.print(i+""+j+" ");
+			}
+			System.out.println();
+		}
+
 	}
 
 	private static void rotateM() {
-		int L0 = N - 1;
-		int last = 0;
-		int first=0;
-		for (int lay = 0; lay < N / 2; lay++) {
-			first = lay;
-			last = L0 - first;
-			for (int i = first; i <= last; i++) {
-				int temp = M[first][first];
-				
-				M[first][first] = M[last - i][first];
-				M[last - i][first] = M[last - i][last - i];
-				M[last - i][last - i] = M[first][last - i];
-				M[first][last - i] = temp;
+		for (int layer = 1; layer <= N / 2; layer++) {
+			for (int i = layer; i < N-layer+1; i++) {
+				int temp = M[layer][i];
+				M[layer][i]=M[N-i+1][layer];
+				M[N-i+1][layer]=M[N-i+1][N-layer+1];
+				M[N-i+1][N-layer+1]=M[i][N-layer+1];
+				M[i][N-layer+1]=temp;
 			}
 
 		}
@@ -46,9 +48,9 @@ public class Rotating_Matrix {
 	}
 
 	private static void createM() {
-		int count = 0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+		int count = 1;
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
 				M[i][j] = count;
 				count++;
 			}
