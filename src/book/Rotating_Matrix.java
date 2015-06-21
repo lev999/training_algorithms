@@ -4,7 +4,7 @@ package book;
 
 public class Rotating_Matrix {
 
-	private final static int N = 3;
+	private final static int N = 5;
 	static int[][] M = new int[N+1][N+1];
 
 	public static void main(String[] arg) {
@@ -38,8 +38,8 @@ public class Rotating_Matrix {
 			for (int i = layer; i < N-layer+1; i++) {
 				int temp = M[layer][i];
 				M[layer][i]=M[N-i+1][layer];
-				M[N-i+1][layer]=M[N-i+1][N-layer+1];
-				M[N-i+1][N-layer+1]=M[i][N-layer+1];
+				M[N-i+1][layer]=M[N-layer+1][N-i+1];
+				M[N-layer+1][N-i+1]=M[i][N-layer+1];
 				M[i][N-layer+1]=temp;
 			}
 
