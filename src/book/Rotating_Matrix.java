@@ -16,6 +16,19 @@ public class Rotating_Matrix {
 		printM();
 	}
 
+	private static void rotateM() {
+
+		for(int layer=1;layer<=N/2;layer++){
+			for (int i=layer;i<=(N-layer);i++){
+				int temp = M[layer][i];
+				M[layer][i]= M[N-i+1][layer];
+				M[N-i+1][layer]= M[N-layer+1][N-i+1];
+				M[N-layer+1][N-i+1]= M[i][N-layer+1];
+				M[i][N-layer+1]= temp;
+			}
+		}
+	}
+
 	private static void printM() {
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
@@ -33,19 +46,6 @@ public class Rotating_Matrix {
 
 	}
 
-	private static void rotateM() {
-		for (int layer = 1; layer <= N / 2; layer++) {
-			for (int i = layer; i < N-layer+1; i++) {
-				int temp = M[layer][i];
-				M[layer][i]=M[N-i+1][layer];
-				M[N-i+1][layer]=M[N-layer+1][N-i+1];
-				M[N-layer+1][N-i+1]=M[i][N-layer+1];
-				M[i][N-layer+1]=temp;
-			}
-
-		}
-
-	}
 
 	private static void createM() {
 		int count = 1;
