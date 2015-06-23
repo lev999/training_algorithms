@@ -1,5 +1,4 @@
-package book;
-
+package task_1_6;
 //http://stackoverflow.com/questions/25882480/rotating-a-nxn-matrix-in-java
 
 public class Rotating_Matrix {

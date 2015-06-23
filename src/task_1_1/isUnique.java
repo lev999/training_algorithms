@@ -1,4 +1,4 @@
-package book;
+package task_1_1;
 
 public class isUnique {
 

@@ -1,4 +1,4 @@
-package book;
+package task_1_2;
 
 public class ReverseString {
 	public static void main(String[] arg) {

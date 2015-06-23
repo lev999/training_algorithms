@@ -1,4 +1,4 @@
-package book;
+package task_1_5;
 
 public class ReplaceAllSpaces {
 

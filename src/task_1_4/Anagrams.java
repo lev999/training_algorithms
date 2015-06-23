@@ -1,4 +1,4 @@
-package book;
+package task_1_4;
 
 import java.util.Arrays;
 

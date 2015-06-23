@@ -1,4 +1,4 @@
-package book;
+package task_1_3;
 
 public class onlyUnicCharsString {
 
